@@ -2,21 +2,27 @@ object pepita {
 
 	var energia = 100
 
-	method energia() {
-		return energia
+	method vola(kms) {
+		energia = energia - kms
 	}
 
-	method esFuerte() {
-		return energia > 50
+	method come(comida) {
+		energia = energia + comida.energiaQueAporta()
 	}
 
-	method volar(kms) {
-		energia = energia - (kms + 10)
+	method estaCansada() {
+		return energia < 50
 	}
-
-	method comer(gramos) {
-		energia = energia + 4 * gramos
-	}
-
 }
 
+object alpiste {
+	method energiaQueAporta() { return 20 }
+}
+
+object manzana {
+	var madurez = 1
+
+	method energiaQueAporta() { return 10 * madurez }
+
+	method madura() { madurez = madurez + 1 }
+}
